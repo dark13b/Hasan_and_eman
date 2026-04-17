@@ -1,0 +1,10 @@
+---
+const items = Astro.props.items ?? [];
+---
+<nav aria-label="Main navigation">
+  <ul class="flex gap-6 list-none p-0 m-0">
+    {items.map((item: { href: string; label: string }) => (
+      <li><a href={item.href}>{item.label}</a></li>
+    ))}
+  </ul>
+</nav>

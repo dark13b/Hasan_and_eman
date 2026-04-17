@@ -1,0 +1,21 @@
+---
+import CaseStudyLayout from "../../../layouts/CaseStudyLayout.astro";
+import CaseStudyHeader from "../../../components/work/CaseStudyHeader.astro";
+import CaseStudyVisuals from "../../../components/work/CaseStudyVisuals.astro";
+import NextProject from "../../../components/work/NextProject.astro";
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: "checkpoint" } },
+    { params: { slug: "zakhraf" } },
+    { params: { slug: "tiba" } }
+  ];
+}
+
+const { slug } = Astro.params;
+---
+<CaseStudyLayout title={slug}>
+  <CaseStudyHeader title={slug} client="العميل" />
+  <CaseStudyVisuals />
+  <NextProject label="المشروع التالي" />
+</CaseStudyLayout>

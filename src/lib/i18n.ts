@@ -1,0 +1,16 @@
+export {
+  defaultLocale,
+  getDir as getHtmlDir,
+  getDictionary,
+  getDir,
+  getLanguageLabel,
+  getLocaleFromPath,
+  getLocaleFromPathname,
+  isLocale,
+  locales,
+  localizePath,
+  rtlLocales,
+  stripLocalePrefix,
+  switchLocalePath,
+  type Locale,
+} from '../i18n/utils';

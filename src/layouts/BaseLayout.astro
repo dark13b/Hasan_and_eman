@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import { getDir, getLocaleFromPath, getDictionary } from "../i18n/utils";
+import { siteConfig } from "../lib/site.config";
+
+const pathname = Astro.url.pathname;
+const locale = getLocaleFromPath(pathname);
+const dir = getDir(locale);
+const dict = getDictionary(locale);
+const pageTitle = Astro.props.title ?? siteConfig.studioName;
+---
+
+<!DOCTYPE html>
+<html lang={locale} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

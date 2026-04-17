@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/forms/ContactForm";
+---
+<BaseLayout title="Contact">
+  <main class="container-shell py-16">
+    <h1 class="text-5xl mb-6">Contact</h1>
+    <ContactForm client:load />
+  </main>
+</BaseLayout>

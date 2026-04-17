@@ -1,0 +1,21 @@
+{
+  "site": {
+    "locale": "en",
+    "dir": "ltr",
+    "languageLabel": "English"
+  },
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "book": "Book",
+    "cv": "CV"
+  },
+  "home": {
+    "heroTitle": "A brand identity studio from Iraq.",
+    "heroSubtitle": "We build considered visual systems for ambitious companies across the GCC.",
+    "availability": "Accepting projects for Q3"
+  }
+}
