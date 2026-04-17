@@ -13,6 +13,19 @@
     "book": "Book",
     "cv": "CV"
   },
+  "header": {
+    "wordmark": "Hasan & Eman"
+  },
+  "footer": {
+    "newsletterLabel": "Newsletter",
+    "newsletterTitle": "Studio notes",
+    "newsletterText": "Occasional updates on selected identity work and seasonal availability.",
+    "newsletterPlaceholder": "Email address",
+    "newsletterButton": "Join",
+    "contactLabel": "Contact",
+    "navLabel": "Navigation",
+    "socialLabel": "Social"
+  },
   "home": {
     "heroTitle": "A brand identity studio from Iraq.",
     "heroSubtitle": "We build considered visual systems for ambitious companies across the GCC.",

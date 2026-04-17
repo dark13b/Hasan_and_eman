@@ -13,6 +13,19 @@
     "book": "احجز",
     "cv": "السيرة"
   },
+  "header": {
+    "wordmark": "حسن وإيمان"
+  },
+  "footer": {
+    "newsletterLabel": "النشرة",
+    "newsletterTitle": "ملاحظات الاستوديو",
+    "newsletterText": "تحديثات متباعدة حول الأعمال المختارة ومواعيد التفرغ.",
+    "newsletterPlaceholder": "البريد الإلكتروني",
+    "newsletterButton": "انضم",
+    "contactLabel": "التواصل",
+    "navLabel": "التصفح",
+    "socialLabel": "الروابط"
+  },
   "home": {
     "heroTitle": "استوديو هوية بصرية من العراق.",
     "heroSubtitle": "نصمم أنظمة بصرية مدروسة للشركات الطموحة في الخليج.",

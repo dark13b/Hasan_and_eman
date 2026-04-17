@@ -1,10 +1,33 @@
 ---
-const items = Astro.props.items ?? [];
+const { items = [], pathname = "/" } = Astro.props;
+
+function isCurrentPath(itemHref: string, currentPath: string) {
+  if (itemHref === "/" || itemHref === "/ar/") {
+    return currentPath === itemHref || currentPath === itemHref.slice(0, -1);
+  }
+
+  return currentPath === itemHref || currentPath.startsWith(`${itemHref}/`);
+}
 ---
 <nav aria-label="Main navigation">
-  <ul class="flex gap-6 list-none p-0 m-0">
-    {items.map((item: { href: string; label: string }) => (
-      <li><a href={item.href}>{item.label}</a></li>
-    ))}
+  <ul class="m-0 flex list-none flex-wrap gap-x-5 gap-y-2 p-0 text-sm text-fg/72">
+    {items.map((item: { href: string; label: string }) => {
+      const isActive = isCurrentPath(item.href, pathname);
+
+      return (
+        <li>
+          <a
+            href={item.href}
+            aria-current={isActive ? "page" : undefined}
+            class:list={[
+              "transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+              isActive ? "text-primary" : "text-fg/72",
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      );
+    })}
   </ul>
 </nav>

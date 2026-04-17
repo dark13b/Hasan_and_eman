@@ -2,12 +2,21 @@
 import "../styles/global.css";
 import { getDir, getLocaleFromPath, getDictionary } from "../i18n/utils";
 import { siteConfig } from "../lib/site.config";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
 
 const pathname = Astro.url.pathname;
 const locale = getLocaleFromPath(pathname);
 const dir = getDir(locale);
 const dict = getDictionary(locale);
 const pageTitle = Astro.props.title ?? siteConfig.studioName;
+const navItems = [
+  { href: locale === "ar" ? "/ar/" : "/", label: dict.nav.home },
+  { href: locale === "ar" ? "/ar/work" : "/work", label: dict.nav.work },
+  { href: locale === "ar" ? "/ar/about" : "/about", label: dict.nav.about },
+  { href: locale === "ar" ? "/ar/services" : "/services", label: dict.nav.services },
+  { href: locale === "ar" ? "/ar/contact" : "/contact", label: dict.nav.contact },
+];
 ---
 
 <!DOCTYPE html>
@@ -18,6 +27,11 @@ const pageTitle = Astro.props.title ?? siteConfig.studioName;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <slot />
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header navItems={navItems} pathname={pathname} locale={locale} dict={dict} />
+    <div id="main-content">
+      <slot />
+    </div>
+    <Footer navItems={navItems} locale={locale} dict={dict} />
   </body>
 </html>

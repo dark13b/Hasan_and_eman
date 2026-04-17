@@ -1,7 +1,37 @@
 ---
+import Nav from "./Nav.astro";
+import LanguageToggle from "./LanguageToggle";
+import { siteConfig } from "../../lib/site.config";
+
+const { navItems = [], pathname = "/", locale = "en", dict } = Astro.props;
 ---
-<header class="border-b border-border">
-  <div class="container-shell py-4">
-    <slot />
+<header class="sticky top-0 z-40 border-b border-border/90 bg-white/90 backdrop-blur-sm">
+  <div class="container-shell py-4 md:py-5">
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
+      <div class="flex items-center justify-between gap-6">
+        <a
+          href={locale === "ar" ? "/ar/" : "/"}
+          class="font-serif text-[1.15rem] tracking-[-0.06em] text-fg transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+        >
+          {dict?.header?.wordmark ?? "Hasan & Eman"}
+        </a>
+        <div class="md:hidden">
+          <LanguageToggle client:idle pathname={pathname} locale={locale} />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3 md:min-w-0 md:flex-1 md:flex-row md:items-center md:justify-end md:gap-6">
+        <Nav items={navItems} pathname={pathname} />
+        {siteConfig.availability.active && (
+          <div class="flex items-center gap-3 text-sm text-fg/68 md:flex-none">
+            <span class="h-2 w-2 rounded-full bg-primary"></span>
+            <span>{siteConfig.availability.label}</span>
+          </div>
+        )}
+        <div class="hidden md:block">
+          <LanguageToggle client:idle pathname={pathname} locale={locale} />
+        </div>
+      </div>
+    </div>
   </div>
 </header>

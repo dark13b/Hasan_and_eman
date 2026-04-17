@@ -1,8 +1,83 @@
 ---
 import { siteConfig } from "../../lib/site.config";
+
+const { navItems = [], dict } = Astro.props;
 ---
-<footer class="border-t border-border mt-16">
-  <div class="container-shell py-8 text-sm">
-    <p>{siteConfig.studioName}</p>
+<footer class="mt-24 border-t border-border">
+  <div class="container-shell py-14 md:py-20">
+    <div class="grid gap-12 border-b border-border pb-12 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,0.8fr))] md:gap-10 md:pb-16">
+      <section class="max-w-md">
+        <p class="text-xs uppercase tracking-[0.24em] text-fg/48">
+          {dict.footer.newsletterLabel}
+        </p>
+        <h2 class="mt-4 font-serif text-3xl tracking-[-0.05em] text-fg md:text-4xl">
+          {dict.footer.newsletterTitle}
+        </h2>
+        <p class="mt-4 text-sm leading-6 text-fg/68 md:text-base">
+          {dict.footer.newsletterText}
+        </p>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <input
+            type="email"
+            placeholder={dict.footer.newsletterPlaceholder}
+            aria-label={dict.footer.newsletterPlaceholder}
+            class="min-h-[3rem] flex-1 border border-border bg-transparent px-4 text-sm text-fg placeholder:text-fg/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+          />
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            class="min-h-[3rem] border border-primary bg-primary px-5 text-sm text-white opacity-60"
+          >
+            {dict.footer.newsletterButton}
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <p class="text-xs uppercase tracking-[0.24em] text-fg/48">{dict.footer.contactLabel}</p>
+        <div class="mt-4 space-y-3 text-sm leading-6 text-fg/72">
+          <p>{siteConfig.email}</p>
+          {siteConfig.locationPublic && <p>{siteConfig.locationPrimary}</p>}
+          <a
+            href={siteConfig.calendlyUrl}
+            class="inline-flex text-fg transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+          >
+            {dict.nav.book}
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <p class="text-xs uppercase tracking-[0.24em] text-fg/48">{dict.footer.navLabel}</p>
+        <ul class="mt-4 space-y-3 text-sm text-fg/72">
+          {navItems.map((item: { href: string; label: string }) => (
+            <li>
+              <a
+                href={item.href}
+                class="transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <p class="text-xs uppercase tracking-[0.24em] text-fg/48">{dict.footer.socialLabel}</p>
+        <ul class="mt-4 space-y-3 text-sm text-fg/72">
+          <li><a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer" class="transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30">LinkedIn</a></li>
+          <li><a href={siteConfig.social.instagram} target="_blank" rel="noreferrer" class="transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30">Instagram</a></li>
+          <li><a href={siteConfig.social.behance} target="_blank" rel="noreferrer" class="transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30">Behance</a></li>
+          <li><a href={siteConfig.social.twitter} target="_blank" rel="noreferrer" class="transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30">X</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="flex flex-col gap-3 pt-6 text-sm text-fg/52 md:flex-row md:items-center md:justify-between">
+      <p>{siteConfig.studioName}</p>
+      <p>{siteConfig.tagline}</p>
+    </div>
   </div>
 </footer>
