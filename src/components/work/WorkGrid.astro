@@ -1,5 +1,22 @@
 ---
+import ProjectsHero from "./ProjectsHero.astro";
+import ProjectsIndex from "./ProjectsIndex";
+import ProjectsCta from "./ProjectsCta.astro";
+
+const { locale = "en", dict } = Astro.props;
 ---
-<div class="container-shell py-16">
-  <p>Work grid placeholder.</p>
-</div>
+<>
+  <ProjectsHero
+    eyebrow={dict.workIndex.eyebrow}
+    title={dict.workIndex.title}
+    intro={dict.workIndex.intro}
+  />
+  <ProjectsIndex client:load locale={locale} />
+  <ProjectsCta
+    locale={locale}
+    title={dict.workIndex.ctaTitle}
+    text={dict.workIndex.ctaText}
+    primaryLabel={dict.workIndex.ctaPrimary}
+    secondaryLabel={dict.workIndex.ctaSecondary}
+  />
+</>

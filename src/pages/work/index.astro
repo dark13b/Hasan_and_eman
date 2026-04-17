@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WorkGrid from "../../components/work/WorkGrid.astro";
+import { getDictionary } from "../../i18n/utils";
+
+const dict = getDictionary("en");
 ---
-<BaseLayout title="Work">
+<BaseLayout title={dict.workIndex.metaTitle}>
   <main>
-    <WorkGrid />
+    <WorkGrid locale="en" dict={dict} />
   </main>
 </BaseLayout>
