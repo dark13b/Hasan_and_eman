@@ -1,9 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/sections/Hero.astro";
+import HomeHero from "../components/sections/HomeHero.astro";
+import HomeClients from "../components/sections/HomeClients.astro";
+import HomeProjects from "../components/sections/HomeProjects";
+import HomeProof from "../components/sections/HomeProof.astro";
+import HomeServices from "../components/sections/HomeServices.astro";
+import HomeClosingCta from "../components/sections/HomeClosingCta.astro";
+import { getDictionary } from "../i18n/utils";
+
+const locale = "en";
+const dict = getDictionary(locale);
 ---
-<BaseLayout title="Hasan & Eman">
+
+<BaseLayout title={dict.homePage.metaTitle}>
   <main>
-    <Hero />
+    <HomeHero dict={dict} locale={locale} />
+    <HomeClients dict={dict} />
+    <HomeProjects client:visible dict={dict} locale={locale} />
+    <HomeProof dict={dict} />
+    <HomeServices dict={dict} />
+    <HomeClosingCta dict={dict} locale={locale} />
   </main>
 </BaseLayout>

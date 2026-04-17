@@ -1,0 +1,25 @@
+---
+const { dict, locale } = Astro.props;
+const contactHref = locale === "ar" ? "/ar/contact" : "/contact";
+---
+
+<section class="border-t border-border">
+  <div class="container-shell py-16 md:py-24">
+    <div class="max-w-4xl">
+      <h2 class="max-w-3xl text-[clamp(2.4rem,5vw,4.8rem)] leading-[0.95] tracking-[-0.055em]">
+        {dict.homePage.closingTitle}
+      </h2>
+      <p class="mt-5 max-w-2xl text-base leading-7 text-fg/68">
+        {dict.homePage.closingText}
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={contactHref} class="focus-ring inline-flex min-h-[3.25rem] items-center justify-center border border-primary bg-primary px-6 text-sm text-white transition-colors duration-200 hover:border-fg hover:bg-fg">
+          {dict.homePage.closingPrimary}
+        </a>
+        <a href="mailto:hello@hasanandeman.com" class="focus-ring inline-flex min-h-[3.25rem] items-center justify-center border border-border px-6 text-sm transition-colors duration-200 hover:border-primary hover:text-primary">
+          {dict.homePage.closingSecondary}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

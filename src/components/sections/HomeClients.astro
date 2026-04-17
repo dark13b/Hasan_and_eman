@@ -1,0 +1,16 @@
+---
+import { homeClients } from "../../data/homepage";
+
+const { dict } = Astro.props;
+---
+
+<section class="border-b border-border">
+  <div class="container-shell py-6 md:py-7">
+    <div class="grid gap-4 md:grid-cols-[180px_minmax(0,1fr)] md:items-start">
+      <p class="editorial-label text-fg/46">{dict.homePage.clientsLabel}</p>
+      <ul class="grid list-none gap-x-6 gap-y-3 p-0 text-sm text-fg/74 sm:grid-cols-2 lg:grid-cols-4">
+        {homeClients.map((client) => <li>{client.name}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+const { dict, locale } = Astro.props;
+const workHref = locale === "ar" ? "/ar/work" : "/work";
+const contactHref = locale === "ar" ? "/ar/contact" : "/contact";
+---
+
+<section class="container-shell pt-10 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20">
+  <div class="grid gap-10 border-b border-border pb-12 md:grid-cols-[minmax(0,0.92fr)_minmax(340px,0.68fr)] md:items-end md:gap-12 xl:gap-16 xl:pb-16">
+    <div class="max-w-[46rem]">
+      <p class="editorial-label mb-5 text-fg/52">{dict.homePage.eyebrow}</p>
+      <h1 class="max-w-[8.3ch] text-[clamp(3.75rem,8vw,7.45rem)] leading-[0.88] tracking-[-0.072em]">
+        {dict.homePage.title}
+      </h1>
+      <p class="mt-7 max-w-2xl text-base leading-7 text-fg/72 md:text-lg">
+        {dict.homePage.intro}
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a href={workHref} class="focus-ring inline-flex min-h-[3.25rem] items-center justify-center border border-primary bg-primary px-6 text-sm text-white transition-colors duration-200 hover:border-fg hover:bg-fg">
+          {dict.homePage.primaryCta}
+        </a>
+        <a href={contactHref} class="focus-ring inline-flex min-h-[3.25rem] items-center justify-center border border-border px-6 text-sm transition-colors duration-200 hover:border-primary hover:text-primary">
+          {dict.homePage.secondaryCta}
+        </a>
+      </div>
+      <p class="mt-10 max-w-xl text-sm leading-6 text-fg/58">{dict.homePage.proofLine}</p>
+    </div>
+    <figure class="overflow-hidden border border-border bg-[rgba(255,255,255,0.45)] md:mb-1">
+      <img
+        src="/images/work/editorial-placeholder-02.svg"
+        alt="Hero artwork for Hasan and Eman homepage"
+        width="1280"
+        height="920"
+        class="aspect-[4/5] object-cover"
+      />
+    </figure>
+  </div>
+</section>

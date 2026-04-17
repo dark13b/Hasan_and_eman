@@ -1,0 +1,24 @@
+---
+import { homeServices } from "../../data/homepage";
+
+const { dict } = Astro.props;
+---
+
+<section class="container-shell py-14 md:py-20">
+  <div class="grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)]">
+    <p class="editorial-label text-fg/46">{dict.homePage.servicesLabel}</p>
+    <div class="space-y-8">
+      {
+        homeServices.map((item) => (
+          <article class="grid gap-4 border-t border-border pt-4 md:grid-cols-[72px_minmax(0,1fr)] md:pt-5">
+            <p class="text-sm text-fg/48">{item.index}</p>
+            <div>
+              <h3 class="text-[clamp(1.9rem,3vw,3.2rem)] leading-[0.95] tracking-[-0.05em]">{item.title}</h3>
+              <p class="mt-3 max-w-2xl text-sm leading-6 text-fg/68">{item.body}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
