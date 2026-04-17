@@ -1,18 +1,15 @@
 import { motion } from "framer-motion";
 import type { ProjectEntry } from "../../data/projects";
-import type { Locale } from "../../i18n/utils";
 
 interface ProjectListItemProps {
   project: ProjectEntry;
   index: number;
-  locale: Locale;
   reducedMotion: boolean;
 }
 
 export default function ProjectListItem({
   project,
   index,
-  locale,
   reducedMotion,
 }: ProjectListItemProps) {
   const reversed = index % 2 === 1;
@@ -32,9 +29,9 @@ export default function ProjectListItem({
       whileInView={reducedMotion ? {} : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55, delay: reducedMotion ? 0 : index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      className="grid gap-7 border-t border-border pt-7 md:grid-cols-[minmax(0,0.3fr)_minmax(0,1fr)] md:gap-0 md:pt-10"
+      className="grid gap-7 border-t border-border pt-7 md:grid-cols-[minmax(18rem,0.36fr)_minmax(0,1fr)] md:gap-0 md:pt-10"
     >
-      <div className={`${metaOrderClass} flex flex-col justify-between gap-6`}>
+      <div className={`${metaOrderClass} flex flex-col gap-6`}>
         <div className="space-y-4">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-fg/46">
             <span>{project.category}</span>
@@ -43,7 +40,7 @@ export default function ProjectListItem({
           </div>
 
           <div>
-            <h2 className="font-serif text-3xl tracking-[-0.05em] text-fg md:text-4xl">
+            <h2 className="font-serif text-3xl tracking-[-0.05em] text-fg md:text-[3.1rem] md:leading-[0.96]">
               {project.title}
             </h2>
             <p className="mt-4 max-w-sm text-sm leading-6 text-fg/68 md:text-base">
@@ -51,10 +48,6 @@ export default function ProjectListItem({
             </p>
           </div>
         </div>
-
-        <p className="inline-flex w-fit text-sm text-fg/54">
-          {locale === "ar" ? "معاينة المشروع" : "Project preview"}
-        </p>
       </div>
 
       <motion.div

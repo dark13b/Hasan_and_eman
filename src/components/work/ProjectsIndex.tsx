@@ -33,7 +33,6 @@ export default function ProjectsIndex({ locale }: ProjectsIndexProps) {
                 key={project.slug}
                 project={project}
                 index={index}
-                locale={locale}
                 reducedMotion={Boolean(reducedMotion)}
               />
             ))}
