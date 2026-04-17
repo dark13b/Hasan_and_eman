@@ -8,13 +8,25 @@ interface Props {
 const { eyebrow, title, intro } = Astro.props;
 ---
 <section class="container-shell pt-20 pb-10 md:pt-28 md:pb-16">
-  <div class="max-w-4xl">
-    <p class="mb-6 text-xs uppercase tracking-[0.24em] text-fg/55">{eyebrow}</p>
-    <h1 class="font-serif text-[clamp(3.5rem,10vw,8.25rem)] leading-[0.92] tracking-[-0.06em]">
-      {title}
-    </h1>
-    <p class="mt-8 max-w-2xl text-base leading-7 text-fg/70 md:text-lg">
-      {intro}
-    </p>
+  <div class="grid gap-12 border-b border-border pb-10 md:grid-cols-[minmax(0,1.3fr)_minmax(14rem,0.45fr)] md:items-end md:gap-10 md:pb-14">
+    <div class="max-w-4xl">
+      <p class="mb-6 text-xs uppercase tracking-[0.24em] text-fg/55">{eyebrow}</p>
+      <h1 class="font-serif text-[clamp(3.5rem,10vw,8.25rem)] leading-[0.92] tracking-[-0.06em]">
+        {title}
+      </h1>
+      <p class="mt-8 max-w-2xl text-base leading-7 text-fg/70 md:text-lg">
+        {intro}
+      </p>
+    </div>
+
+    <div class="grid gap-4 text-sm text-fg/54 md:justify-self-end md:text-right">
+      <div class="border-t border-border pt-4">
+        <p class="text-[0.7rem] uppercase tracking-[0.22em] text-fg/42">Archive</p>
+        <p class="mt-2 text-balance leading-6">
+          Original placeholders arranged as a studio index, ready to be replaced with published work.
+        </p>
+      </div>
+      <p class="text-[0.7rem] uppercase tracking-[0.24em] text-fg/38">(2022-26)</p>
+    </div>
   </div>
 </section>
